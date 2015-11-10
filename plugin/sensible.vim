@@ -28,18 +28,24 @@ set ttimeout
 set ttimeoutlen=100
 
 set incsearch
+set hlsearch                            " Highlight search matches
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
 
-set laststatus=2
-set ruler
-set showcmd
-set wildmenu
+set laststatus=2                        " Always show status line
+set ruler                               " Show line/col num of cursor position
+set showcmd                             " Show parts of typed cmd in status line
+set wildmenu                            " Show autocompletion commands on line above"
+
+set ignorecase                          " Case insensitive matching
+set smartcase                           " Case sensitive if word begins with capital letter
+
+set cursorline                          " Highlights the current line
 
 if !&scrolloff
-  set scrolloff=1
+  set scrolloff=3
 endif
 if !&sidescrolloff
   set sidescrolloff=5
